@@ -1,10 +1,11 @@
+import { rendererOptions } from "@/lib/RichTextRenderer";
 import { cva, type VariantProps } from "class-variance-authority";
 import { type ClassNameValue } from "tailwind-merge";
 
-import { cn } from "@/lib/utils";
-import type { Asset } from "contentful";
+import { cn, optimise } from "@/lib/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import type { Document } from "@contentful/rich-text-types";
+import { type Document } from "@contentful/rich-text-types";
+import type { Asset, AssetFile } from "contentful";
 
 export const thingTile = cva("item m-4 rounded-xl", {
   variants: {
@@ -27,6 +28,7 @@ export interface ThingTileProps extends VariantProps<typeof thingTile> {
   description: Document;
   image?: Asset;
   colour?: string;
+  textColour?: string;
 }
 
 const ThingTile = ({
@@ -35,9 +37,10 @@ const ThingTile = ({
   name,
   description,
   image,
-  colour = "#cbd5e1"
+  colour = "#cbd5e1",
+  textColour = "#000000"
 }: ThingTileProps) => {
-  const imageFile = image?.fields.file;
+  const file = image?.fields.file as AssetFile | undefined;
 
   return (
     <article
@@ -46,17 +49,17 @@ const ThingTile = ({
         backgroundColor: colour
       }}
     >
+      {file && (
+        <img
+          className="absolute -z-10 rounded-xl object-cover"
+          src={optimise(file)}
+          alt={name}
+        />
+      )}
       <div className="item-content p-4">
-        {imageFile && (
-          <img
-            className="-z-10 rounded-xl object-cover"
-            src={imageFile.url?.toString()}
-            alt={name}
-          />
-        )}
-        <div>
-          <h3 className="mb-2 text-3xl font-semibold text-primary">{name}</h3>
-          {documentToReactComponents(description)}
+        <div style={{ color: textColour }}>
+          <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+          {documentToReactComponents(description, rendererOptions)}
         </div>
       </div>
     </article>

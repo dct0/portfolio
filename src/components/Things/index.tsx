@@ -7,11 +7,17 @@ interface ThingsProps {
 
 const Things = ({ items }: ThingsProps) => {
   return (
-    <ThingGrid>
-      {items.map((project, index) => (
-        <ThingTile key={index} {...project} />
-      ))}
-    </ThingGrid>
+    <>
+      {items.length ? (
+        <ThingGrid>
+          {items.map((project, index) => (
+            <ThingTile key={index} {...project} />
+          ))}
+        </ThingGrid>
+      ) : (
+        <p>No items found.</p>
+      )}
+    </>
   );
 };
 

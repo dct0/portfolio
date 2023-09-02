@@ -14,4 +14,5 @@ export interface Project {
 export interface ProjectOptions {
   size?: "sm" | "md" | "lg" | "full";
   colour?: "string";
+  textColour?: "string";
 }

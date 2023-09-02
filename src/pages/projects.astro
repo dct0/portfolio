@@ -29,7 +29,8 @@ const projects = await entries.items.reduce(
       description,
       image: asset,
       size: options?.size,
-      colour: options?.colour
+      colour: options?.colour,
+      textColour: options?.textColour
     });
 
     return result;
