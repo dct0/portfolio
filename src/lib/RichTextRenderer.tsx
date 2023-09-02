@@ -30,10 +30,14 @@ export const rendererOptions: Options = {
     ),
     [BLOCKS.HR]: () => <hr className="mb-2" />,
     [BLOCKS.UL_LIST]: (_, children) => (
-      <ul className="list-inside list-disc">{children}</ul>
+      <ul className="list-inside list-disc" role="list">
+        {children}
+      </ul>
     ),
     [BLOCKS.OL_LIST]: (_, children) => (
-      <ol className="list-inside list-decimal">{children}</ol>
+      <ol className="list-inside list-decimal" role="list">
+        {children}
+      </ol>
     ),
 
     // Fuck you contentful

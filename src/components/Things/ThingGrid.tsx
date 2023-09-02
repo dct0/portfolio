@@ -1,16 +1,7 @@
 import { type PropsWithChildren, useEffect, useRef, useState } from "react";
 import Muuri from "muuri";
 
-interface ThingGridProps {
-  as?: string;
-}
-
-const ThingGrid = ({
-  as = "div",
-  children
-}: PropsWithChildren<ThingGridProps>) => {
-  const Component = as as keyof JSX.IntrinsicElements;
-
+const ThingGrid = ({ children }: PropsWithChildren) => {
   const [grid, setGrid] = useState<Muuri>();
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -33,11 +24,11 @@ const ThingGrid = ({
   }, [grid]);
 
   return (
-    <Component className="-m-4">
+    <section className="-m-4">
       <div ref={gridRef} className="thing-grid">
         {children}
       </div>
-    </Component>
+    </section>
   );
 };
 

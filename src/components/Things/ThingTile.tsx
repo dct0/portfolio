@@ -49,17 +49,24 @@ const ThingTile = ({
         backgroundColor: colour
       }}
     >
-      {file && (
-        <img
-          className="absolute -z-10 rounded-xl object-cover"
-          src={optimise(file)}
-          alt={name}
-        />
-      )}
-      <div className="item-content p-4">
-        <div style={{ color: textColour }}>
-          <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
-          {documentToReactComponents(description, rendererOptions)}
+      <div className="item-content">
+        <div
+          className="h-full w-full rounded-xl"
+          style={{
+            color: textColour
+          }}
+        >
+          {file && (
+            <img
+              className="object-fit rounded-xl"
+              alt={`Image for ${name}`}
+              src={optimise(file)}
+            />
+          )}
+          <div className={cn("h-full w-full p-4", { "absolute top-0": file })}>
+            <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+            {documentToReactComponents(description, rendererOptions)}
+          </div>
         </div>
       </div>
     </article>
