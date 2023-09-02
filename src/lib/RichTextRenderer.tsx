@@ -39,8 +39,8 @@ export const rendererOptions: Options = {
     // Fuck you contentful
     [BLOCKS.LIST_ITEM]: (node) => {
       const UnTaggedChildren = documentToReactComponents(node as Document, {
-        ...rendererOptions,
         renderNode: {
+          ...rendererOptions.renderNode,
           [BLOCKS.PARAGRAPH]: (_, children) => children,
           [BLOCKS.LIST_ITEM]: (_, children) => children
         }
