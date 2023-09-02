@@ -1,0 +1,29 @@
+---
+import NavItem from "@/components/NavItem.astro";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
+import SidebarAvatar from "@/components/SidebarAvatar";
+---
+
+<aside
+  transition:animate="fade"
+  class="flex h-screen w-64 flex-col bg-primary-foreground p-8"
+>
+  <header class="flex flex-col">
+    <SidebarAvatar client:idle className="mb-3" />
+    <b class="text-xl">Dylan To</b>
+    <p class="text-sm text-muted-foreground">dylan.to@hotmail.com</p>
+  </header>
+  <Separator className="my-12" />
+  <div class="flex h-full flex-col justify-between">
+    <nav class="flex flex-col gap-6 pl-3">
+      <NavItem name="Home" href="/" />
+      <NavItem name="Projects" href="/projects" />
+      <NavItem name="Posts" href="/posts" />
+      <NavItem name="Links" href="/links" />
+    </nav>
+    <footer>
+      <Switch client:load className="float-right" />
+    </footer>
+  </div>
+</aside>

@@ -1,0 +1,10 @@
+---
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import Things from "@/components/Things";
+---
+
+<Layout title="Portfolio">
+  <Header title="Portfolio." description="Here is me." />
+  <Things client:only items={[]} />
+</Layout>

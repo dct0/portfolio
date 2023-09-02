@@ -1,0 +1,44 @@
+---
+import Header from "@/components/Header.astro";
+import Things from "@/components/Things";
+import { type ThingTileProps } from "@/components/Things/ThingTile";
+import Layout from "@/layouts/Layout.astro";
+import { contentfulClient } from "@/lib/contentful";
+import { type Project, type ProjectOptions } from "@/types";
+
+const entries = await contentfulClient.getEntries<Project>({
+  content_type: "project",
+  order: ["sys.createdAt"]
+});
+
+const projects = await entries.items.reduce(
+  async (r, entry) => {
+    const result = await r;
+    const { slug, title, description, image, options: o } = entry.fields;
+
+    const options = o as unknown as ProjectOptions;
+
+    const asset =
+      image?.sys.id && image.sys.type === "Asset"
+        ? await contentfulClient.getAsset(image?.sys.id)
+        : undefined;
+
+    result.push({
+      slug,
+      name: title,
+      description,
+      image: asset,
+      size: options?.size,
+      colour: options?.colour
+    });
+
+    return result;
+  },
+  Promise.resolve([] as ThingTileProps[])
+);
+---
+
+<Layout title="Projects">
+  <Header title="Projects." description="Here are my projects." />
+  <Things client:only items={projects} />
+</Layout>

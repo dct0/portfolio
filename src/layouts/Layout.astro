@@ -1,0 +1,33 @@
+---
+import Sidebar from "@/components/Sidebar.astro";
+import { CMS_NAME } from "@/lib/constants";
+
+import "@/styles/globals.css";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html transition:animate="none" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content={`This is a portfolio built with Astro and ${CMS_NAME}.`}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions fallback="swap" />
+  </head>
+  <body class="flex h-screen w-full bg-secondary">
+    <Sidebar />
+    <section class="w-full overflow-y-auto px-20"><slot /></section>
+  </body>
+</html>

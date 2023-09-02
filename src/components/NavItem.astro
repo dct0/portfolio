@@ -1,0 +1,26 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  name: string;
+  href: string;
+}
+
+const { name, href } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const active = href === pathname || (href === "" && pathname === null);
+---
+
+<a
+  class={cn(
+    "text-xl font-bold text-muted-foreground last:mb-0 hover:text-primary",
+    {
+      "text-primary": active
+    }
+  )}
+  href={href}
+>
+  {name}
+</a>
