@@ -51,7 +51,7 @@ const ThingTile = ({
       }}
     >
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <div className="item-content">
             <div
               className="h-full w-full rounded-xl"
