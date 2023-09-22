@@ -6,6 +6,7 @@ import { cn, optimise } from "@/lib/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { type Document } from "@contentful/rich-text-types";
 import type { Asset, AssetFile } from "contentful";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 export const thingTile = cva("item m-4 rounded-xl", {
   variants: {
@@ -49,26 +50,69 @@ const ThingTile = ({
         backgroundColor: colour
       }}
     >
-      <div className="item-content">
-        <div
-          className="h-full w-full rounded-xl"
-          style={{
-            color: textColour
-          }}
-        >
-          {file && (
-            <img
-              className="object-fit rounded-xl"
-              alt={`Image for ${name}`}
-              src={optimise(file)}
-            />
-          )}
-          <div className={cn("h-full w-full p-4", { "absolute top-0": file })}>
-            <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
-            {documentToReactComponents(description, rendererOptions)}
+      <Dialog>
+        <DialogTrigger>
+          <div className="item-content">
+            <div
+              className="h-full w-full rounded-xl"
+              style={{
+                color: textColour
+              }}
+            >
+              {file && (
+                <img
+                  className="object-fit rounded-xl"
+                  alt={`Image for ${name}`}
+                  src={optimise(file)}
+                />
+              )}
+              <div
+                className={cn("h-full w-full p-4 text-left", {
+                  "absolute top-0": file
+                })}
+              >
+                <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+                {documentToReactComponents(description, rendererOptions)}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </DialogTrigger>
+        <DialogContent className="top-[100%] flex h-3/4 translate-y-[-100%] flex-col gap-0 space-y-0 rounded-xl p-0 sm:rounded-xl">
+          <div className="relative flex flex-col rounded-t-xl">
+            {file ? (
+              <img
+                className="object-fit rounded-t-xl"
+                alt={`Image for ${name}`}
+                src={optimise(file)}
+              />
+            ) : (
+              <div
+                className="rounded-t-xl p-6"
+                style={{
+                  color: textColour,
+                  backgroundColor: colour
+                }}
+              >
+                <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+                {documentToReactComponents(description, rendererOptions)}
+              </div>
+            )}
+            {file && (
+              <div
+                className="absolute p-6"
+                style={{
+                  color: textColour
+                }}
+              >
+                <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+                {documentToReactComponents(description, rendererOptions)}
+              </div>
+            )}
+          </div>
+
+          <div className="p-6">Made some stuff</div>
+        </DialogContent>
+      </Dialog>
     </article>
   );
 };

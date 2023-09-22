@@ -15,7 +15,7 @@ const ThingGrid = ({ children }: PropsWithChildren) => {
           layout: {
             fillGaps: true
           },
-          dragEnabled: true
+          dragEnabled: false
         })
       );
     }
