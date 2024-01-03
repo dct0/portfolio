@@ -1,10 +1,35 @@
 ---
-import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
-import Things from "@/components/Things";
+import Carousel from "@/components/Carousel";
+import CarouselItem from "@/components/Carousel/CarouselItem.astro";
+
+const items = [
+  {
+    title: "I'm a software engineer.",
+    description: "I'm a full-stack web developer."
+  },
+  {
+    title: "I like good design.",
+    description: "I like frontend development."
+  },
+  {
+    title: "I play music.",
+    description: "I can play the guitar."
+  }
+];
 ---
 
-<Layout title="Portfolio">
-  <Header title="Portfolio." description="Here is me." />
-  <Things client:only items={[]} />
+<Layout title="Portfolio" heading="Portfolio." subheading="Here is me.">
+  <Carousel client:load>
+    {
+      items.map((item) => (
+        <CarouselItem>
+          <div class="text-white" slot="item">
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+          </div>
+        </CarouselItem>
+      ))
+    }
+  </Carousel>
 </Layout>

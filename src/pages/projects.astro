@@ -1,5 +1,4 @@
 ---
-import Header from "@/components/Header.astro";
 import Things from "@/components/Things";
 import { type ThingTileProps } from "@/components/Things/ThingTile";
 import Layout from "@/layouts/Layout.astro";
@@ -39,7 +38,6 @@ const projects = await entries.items.reduce(
 );
 ---
 
-<Layout title="Projects">
-  <Header title="Projects." description="Here are my projects." />
+<Layout title="Projects" heading="Projects." subheading="Here are my projects.">
   <Things client:only items={projects} />
 </Layout>
