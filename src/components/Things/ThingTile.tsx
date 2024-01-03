@@ -52,7 +52,7 @@ const ThingTile = ({
     >
       <Dialog>
         <DialogTrigger asChild>
-          <div className="item-content">
+          <div className="item-content cursor-pointer">
             <div
               className="h-full w-full rounded-xl"
               style={{

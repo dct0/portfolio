@@ -63,6 +63,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    color-scheme: dark;
   }
 }
 
@@ -102,5 +104,32 @@
     position: relative;
     width: 100%;
     height: 100%;
+  }
+}
+
+@layer components {
+  .funny::before {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    top: 0%;
+    bottom: 10%;
+    height: 75%;
+    width: 150%;
+    top: 12.5%;
+    left: -25%;
+    background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    mask-image: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
+  }
+
+  .funny > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@layer utility {
+  .bg-blue-purple-gradient {
+    background-image: linear-gradient(83.21deg, #3245ff 0%, #b845ed 100%);
   }
 }

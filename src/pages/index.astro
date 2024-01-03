@@ -1,7 +1,7 @@
 ---
+import { Code } from "astro:components";
 import Layout from "@/layouts/Layout.astro";
-import Carousel from "@/components/Carousel";
-import CarouselItem from "@/components/Carousel/CarouselItem.astro";
+import { ChevronRightIcon, Clipboard, ClipboardCopy } from "lucide-react";
 
 const items = [
   {
@@ -20,16 +20,68 @@ const items = [
 ---
 
 <Layout title="Portfolio" heading="Portfolio." subheading="Here is me.">
-  <Carousel client:load>
-    {
-      items.map((item) => (
-        <CarouselItem>
-          <div class="text-white" slot="item">
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
+  <article
+    class="dark static mb-16 h-full overflow-y-auto overflow-x-hidden rounded-xl bg-gray-900"
+  >
+    <nav
+      class="flex h-20 items-center border-b border-gray-700 bg-gray-900 px-8"
+    >
+      <a href="/" class="text-2xl font-bold text-gray-100">Imagine</a>
+      <ul class="ml-auto flex gap-8">
+        <li>
+          <a href="#" class="text-gray-100">Home</a>
+        </li>
+        <li>
+          <a href="#about" class="text-gray-100">About</a>
+        </li>
+        <li>
+          <a href="#contact" class="text-gray-100">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="funny relative py-60">
+      <h2 class="mb-8 text-center text-6xl font-bold text-gray-100">
+        A Software Engineer
+      </h2>
+      <h3 class="mb-6 text-center text-2xl font-thin text-gray-100">
+        This is the current trend apparently
+      </h3>
+      <div class="flex items-center justify-center gap-4">
+        <div class="bg-blue-purple-gradient p-0.5 shadow-sm">
+          <div class="flex items-center bg-gray-950 p-4">
+            <ChevronRightIcon className="text-gray-100 mr-1" size="20" />
+            <code
+              class="flex-1 text-left font-mono text-lg leading-none text-gray-400"
+            >
+              So I copied the
+            </code>
+            <button
+              class="hover:scale-105 active:scale-100 active:transition-none"
+              type="button"
+            >
+              <ClipboardCopy
+                className="ml-3 text-gray-100 hover:text-gray-300"
+                size="24"
+              />
+            </button>
           </div>
-        </CarouselItem>
-      ))
-    }
-  </Carousel>
+        </div>
+        <a
+          class="flex h-14 items-center rounded-full bg-gray-100 px-10 text-center font-medium leading-none text-blue-600 hover:bg-gray-300"
+          href="https://astro.build/"
+          target="_blank"
+        >
+          Astro Website
+        </a>
+      </div>
+    </section>
+    <section class="pb-20">
+      <h2 class="prose-2xl mb-8 text-center text-5xl font-bold text-gray-100">
+        Imagine there's some useful things about me here
+      </h2>
+      <p class="prose text-center text-gray-100">
+        Because I can't think of anything better at the moment.
+      </p>
+    </section>
+  </article>
 </Layout>
