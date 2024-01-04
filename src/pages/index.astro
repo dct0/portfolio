@@ -1,22 +1,13 @@
 ---
-import { Code } from "astro:components";
+import SkillTile from "@/components/Home/SkillTile.astro";
 import Layout from "@/layouts/Layout.astro";
-import { ChevronRightIcon, Clipboard, ClipboardCopy } from "lucide-react";
-
-const items = [
-  {
-    title: "I'm a software engineer.",
-    description: "I'm a full-stack web developer."
-  },
-  {
-    title: "I like good design.",
-    description: "I like frontend development."
-  },
-  {
-    title: "I play music.",
-    description: "I can play the guitar."
-  }
-];
+import {
+  SiPython,
+  SiTypescript,
+  SiTypescriptHex,
+  SiPythonHex
+} from "@icons-pack/react-simple-icons";
+import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
 ---
 
 <Layout title="Portfolio" heading="Portfolio." subheading="Here is me.">
@@ -39,13 +30,9 @@ const items = [
         </li>
       </ul>
     </nav>
-    <section class="funny relative py-60">
-      <h2 class="mb-8 text-center text-6xl font-bold text-gray-100">
-        A Software Engineer
-      </h2>
-      <h3 class="mb-6 text-center text-2xl font-thin text-gray-100">
-        This is the current trend apparently
-      </h3>
+    <section class="funny relative py-60 text-center text-gray-100">
+      <h2 class="mb-8 text-6xl font-bold">A Software Engineer</h2>
+      <h3 class="mb-6 text-2xl font-thin">Apparently this is the trend</h3>
       <div class="flex items-center justify-center gap-4">
         <div class="bg-blue-purple-gradient p-0.5 shadow-sm">
           <div class="flex items-center bg-gray-950 p-4">
@@ -75,13 +62,33 @@ const items = [
         </a>
       </div>
     </section>
-    <section class="pb-20">
-      <h2 class="prose-2xl mb-8 text-center text-5xl font-bold text-gray-100">
-        Imagine there's some useful things about me here
+    <section class="pb-60 text-gray-100">
+      <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
+        Imagine there are useful <br /> things about me here
       </h2>
-      <p class="prose text-center text-gray-100">
+      <p class="text-center text-2xl font-thin">
         Because I can't think of anything better at the moment.
       </p>
+    </section>
+    <section
+      class="mx-16 flex flex-col items-center pb-60 text-center text-gray-100"
+    >
+      <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
+        I like web development
+      </h2>
+      <div class="grid w-full grid-cols-6 gap-2">
+        <SkillTile class="col-span-4" name="TypeScript" color={SiTypescriptHex}>
+          <SiTypescript slot="icon" size="32" />
+          <p>Here is a nice description</p>
+          <p>Here is more</p>
+        </SkillTile>
+        <SkillTile class="col-span-2" name="Python" color={SiPythonHex}>
+          <SiPython slot="icon" size="32" />
+        </SkillTile>
+        <SkillTile name="HTML" />
+        <SkillTile name="React" />
+        <SkillTile name="Vue" />
+      </div>
     </section>
   </article>
 </Layout>
