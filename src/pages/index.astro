@@ -3,13 +3,11 @@ import SkillTile from "@/components/Home/SkillTile.astro";
 import Layout from "@/layouts/Layout.astro";
 import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
 import {
-  default as SiPython,
-  defaultColor as SiPythonHex
-} from "@icons-pack/react-simple-icons/icons/SiPython.mjs";
-import {
-  default as SiTypescript,
-  defaultColor as SiTypescriptHex
-} from "@icons-pack/react-simple-icons/icons/SiTypescript.mjs";
+  SiPython,
+  SiTypescript,
+  SiTypescriptHex,
+  SiPythonHex
+} from "@icons-pack/react-simple-icons";
 ---
 
 <Layout title="Portfolio" heading="Portfolio." subheading="Here is me.">
@@ -80,12 +78,12 @@ import {
       </h2>
       <div class="grid w-full grid-cols-6 gap-2">
         <SkillTile class="col-span-4" name="TypeScript" color={SiTypescriptHex}>
-          <SiTypescript slot="icon" size="32" />
+          <SiTypescript client:only slot="icon" size="32" />
           <p>Here is a nice description</p>
           <p>Here is more</p>
         </SkillTile>
         <SkillTile class="col-span-2" name="Python" color={SiPythonHex}>
-          <SiPython slot="icon" size="32" />
+          <SiPython client:only slot="icon" size="32" />
         </SkillTile>
         <SkillTile name="HTML" />
         <SkillTile name="React" />
