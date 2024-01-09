@@ -16,3 +16,19 @@ export const optimise = (assetFile: AssetFile) => {
 
   return `${url}?fm=jpg&w=${width}`;
 };
+
+/**
+ * Convert non-6-digit hex color to 6-digit with the character `#` stripped.
+ * Courtesy of https://github.com/simple-icons/simple-icons/blob/develop/sdk.mjs#L173
+ * @param {string} text The color text
+ * @returns {string} The color text in 6-digit hex format
+ */
+export const normalizeColor = (text: string): string => {
+  let color = text.replace("#", "").toUpperCase();
+  if (color.length < 6) {
+    color = [...color.slice(0, 3)].map((x) => x.repeat(2)).join("");
+  } else if (color.length > 6) {
+    color = color.slice(0, 6);
+  }
+  return color;
+};

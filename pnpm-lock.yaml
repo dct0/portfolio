@@ -65,6 +65,9 @@ dependencies:
   dompurify:
     specifier: ^3.0.5
     version: 3.0.5
+  get-relative-luminance:
+    specifier: ^1.0.0
+    version: 1.0.0
   lucide-react:
     specifier: ^0.307.0
     version: 0.307.0(react@18.2.0)
@@ -2948,6 +2951,10 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /color-convert@0.5.3:
+    resolution: {integrity: sha512-RwBeO/B/vZR3dfKL1ye/vx8MHZ40ugzpyfeVG5GsiuGnrlMWe2o8wxBbLCpw9CsxV+wHuzYlCiWnybrIA0ling==}
+    dev: false
+
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -4035,6 +4042,12 @@ packages:
   /get-nonce@1.0.1:
     resolution: {integrity: sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==}
     engines: {node: '>=6'}
+    dev: false
+
+  /get-relative-luminance@1.0.0:
+    resolution: {integrity: sha512-7KfII4myAD4BI4uV63W0W33BicqXNsYil6mmpUJHlfkkIooe0++KJNaskPjYG3XlFH3UKHxxG3iKPt99H6Gm9w==}
+    dependencies:
+      parse-color: 1.0.0
     dev: false
 
   /get-stream@5.2.0:
@@ -5797,6 +5810,12 @@ packages:
     dependencies:
       xml-parse-from-string: 1.0.1
       xml2js: 0.4.23
+    dev: false
+
+  /parse-color@1.0.0:
+    resolution: {integrity: sha512-fuDHYgFHJGbpGMgw9skY/bj3HL/Jrn4l/5rSspy00DoT4RyLnDcRvPxdZ+r6OFwIsgAuhDh4I09tAId4mI12bw==}
+    dependencies:
+      color-convert: 0.5.3
     dev: false
 
   /parse-headers@2.0.5:
