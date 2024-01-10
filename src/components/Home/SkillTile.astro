@@ -22,7 +22,7 @@ const getTextColor = (text: string) => {
     : -1;
 
   if (luminance === -1) return "#f3f4f6"; // gray-100
-  return luminance < 0.4 ? "#f3f4f6" /* gray-100 */ : "#111827" /*gray-900*/;
+  return luminance < 0.4 ? "#f3f4f6" /* gray-100 */ : "#111827" /* gray-900 */;
 };
 
 const {
@@ -49,7 +49,7 @@ const {
     </span>
     {iconName && <Icon name={iconName} size={32} color={textColor} />}
   </header>
-  <section class="text-justify" style={{ color: textColor }}>
+  <section class="text-left" style={{ color: textColor }}>
     <slot />
   </section>
 </article>
