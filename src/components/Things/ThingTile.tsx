@@ -65,7 +65,7 @@ const ThingTile = ({
             </div>
           </div>
         </DialogTrigger>
-        <DialogContent className="top-[100%] flex h-2/3 translate-y-[-100%] flex-col gap-0 rounded-xl p-0 focus-visible:outline-none sm:rounded-xl">
+        <DialogContent className="top-[100%] flex h-2/3 translate-y-[-100%] flex-col gap-0 rounded-b-none rounded-t-xl p-0 focus-visible:outline-none sm:rounded-b-none sm:rounded-t-xl">
           {file ? (
             <img
               className="rounded-t-xl"
@@ -96,7 +96,7 @@ const ThingTile = ({
             </div>
           )}
 
-          <div className="p-6">
+          <div className="overflow-y-auto p-6">
             {documentToReactComponents(body, rendererOptions)}
           </div>
         </DialogContent>
