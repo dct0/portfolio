@@ -12,7 +12,7 @@ export const optimise = (assetFile: AssetFile) => {
     details: { image }
   } = assetFile;
   let width = image?.width ?? 250;
-  width = Math.min(Math.max(width * 0.75, 250), 800);
+  width = Math.floor(Math.min(Math.max(width * 0.75, 250), 800));
 
   return `${url}?fm=jpg&w=${width}`;
 };

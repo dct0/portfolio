@@ -55,7 +55,7 @@ const ThingTile = ({
               style={{
                 color: textColour,
                 backgroundImage: file ? `url(${optimise(file)})` : "none",
-                backgroundPosition: "center",
+                backgroundPosition: "50% 33%",
                 backgroundSize: "cover",
                 backgroundColor: colour
               }}
