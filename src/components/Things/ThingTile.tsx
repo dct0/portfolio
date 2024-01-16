@@ -27,6 +27,7 @@ export interface ThingTileProps extends VariantProps<typeof thingTile> {
   slug: string;
   name: string;
   description: Document;
+  body: Document;
   image?: Asset;
   colour?: string;
   textColour?: string;
@@ -37,6 +38,7 @@ const ThingTile = ({
   size,
   name,
   description,
+  body,
   image,
   colour = "#cbd5e1",
   textColour = "#000000"
@@ -63,7 +65,7 @@ const ThingTile = ({
             </div>
           </div>
         </DialogTrigger>
-        <DialogContent className="top-[100%] flex h-3/4 translate-y-[-100%] flex-col gap-0 space-y-0 rounded-xl p-0 focus-visible:outline-none sm:rounded-xl">
+        <DialogContent className="top-[100%] flex h-2/3 translate-y-[-100%] flex-col gap-0 rounded-xl p-0 focus-visible:outline-none sm:rounded-xl">
           {file ? (
             <img
               className="rounded-t-xl"
@@ -94,7 +96,9 @@ const ThingTile = ({
             </div>
           )}
 
-          <div className="p-6">Made some stuff</div>
+          <div className="p-6">
+            {documentToReactComponents(body, rendererOptions)}
+          </div>
         </DialogContent>
       </Dialog>
     </article>

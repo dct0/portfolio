@@ -6,6 +6,7 @@ export interface Project {
     slug: EntryFieldTypes.Text;
     title: EntryFieldTypes.Text;
     description: EntryFieldTypes.RichText;
+    body: EntryFieldTypes.RichText;
     image?: EntryFieldTypes.AssetLink;
     options?: EntryFieldTypes.Object;
   };

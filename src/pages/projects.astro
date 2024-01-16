@@ -13,7 +13,7 @@ const entries = await contentfulClient.getEntries<Project>({
 const projects = await entries.items.reduce(
   async (r, entry) => {
     const result = await r;
-    const { slug, title, description, image, options: o } = entry.fields;
+    const { slug, title, description, body, image, options: o } = entry.fields;
 
     const options = o as unknown as ProjectOptions;
 
@@ -26,6 +26,7 @@ const projects = await entries.items.reduce(
       slug,
       name: title,
       description,
+      body,
       image: asset,
       size: options?.size,
       colour: options?.colour,
