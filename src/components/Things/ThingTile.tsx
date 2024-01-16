@@ -11,9 +11,9 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 export const thingTile = cva("item m-4 rounded-xl", {
   variants: {
     size: {
-      sm: "w-[calc(25%-2rem)]",
-      md: "w-[calc(50%-2rem)]",
-      lg: "w-[calc(75%-2rem)]",
+      sm: "w-[calc(25%-2rem)] h-[14rem]",
+      md: "w-[calc(50%-2rem)] h-[24rem]",
+      lg: "w-[calc(75%-2rem)] h-[34rem]",
       full: "w-full"
     }
   },
@@ -44,71 +44,55 @@ const ThingTile = ({
   const file = image?.fields.file as AssetFile | undefined;
 
   return (
-    <article
-      className={cn(thingTile({ size, className }))}
-      style={{
-        backgroundColor: colour
-      }}
-    >
+    <article className={cn(thingTile({ size, className }))}>
       <Dialog>
         <DialogTrigger asChild>
           <div className="item-content cursor-pointer">
             <div
-              className="h-full w-full rounded-xl"
+              className="h-full rounded-xl p-4 text-left"
+              style={{
+                color: textColour,
+                backgroundImage: file ? `url(${optimise(file)})` : "none",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundColor: colour
+              }}
+            >
+              <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+              {documentToReactComponents(description, rendererOptions)}
+            </div>
+          </div>
+        </DialogTrigger>
+        <DialogContent className="top-[100%] flex h-3/4 translate-y-[-100%] flex-col gap-0 space-y-0 rounded-xl p-0 focus-visible:outline-none sm:rounded-xl">
+          {file ? (
+            <img
+              className="rounded-t-xl"
+              alt={`Image for ${name}`}
+              src={optimise(file)}
+            />
+          ) : (
+            <div
+              className="rounded-t-xl p-6"
+              style={{
+                color: textColour,
+                backgroundColor: colour
+              }}
+            >
+              <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+              {documentToReactComponents(description, rendererOptions)}
+            </div>
+          )}
+          {file && (
+            <div
+              className="absolute p-6"
               style={{
                 color: textColour
               }}
             >
-              {file && (
-                <img
-                  className="object-fit rounded-xl"
-                  alt={`Image for ${name}`}
-                  src={optimise(file)}
-                />
-              )}
-              <div
-                className={cn("h-full w-full p-4 text-left", {
-                  "absolute top-0": file
-                })}
-              >
-                <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
-                {documentToReactComponents(description, rendererOptions)}
-              </div>
+              <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+              {documentToReactComponents(description, rendererOptions)}
             </div>
-          </div>
-        </DialogTrigger>
-        <DialogContent className="top-[100%] flex h-3/4 translate-y-[-100%] flex-col gap-0 space-y-0 rounded-xl p-0 sm:rounded-xl">
-          <div className="relative flex flex-col rounded-t-xl">
-            {file ? (
-              <img
-                className="object-fit rounded-t-xl"
-                alt={`Image for ${name}`}
-                src={optimise(file)}
-              />
-            ) : (
-              <div
-                className="rounded-t-xl p-6"
-                style={{
-                  color: textColour,
-                  backgroundColor: colour
-                }}
-              >
-                <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
-                {documentToReactComponents(description, rendererOptions)}
-              </div>
-            )}
-            {file && (
-              <div
-                className="absolute p-6"
-                style={{
-                  color: textColour
-                }}
-              >
-                <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
-                {documentToReactComponents(description, rendererOptions)}
-              </div>
-            )}
-          </div>
+          )}
 
           <div className="p-6">Made some stuff</div>
         </DialogContent>
