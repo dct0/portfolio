@@ -6,21 +6,17 @@ const ThingGrid = ({ children }: PropsWithChildren) => {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    async function spawnGrid() {
-      if (grid || !gridRef.current) return;
+    if (grid || !gridRef.current) return;
 
-      setGrid(
-        new Muuri(gridRef.current, {
-          items: ".item",
-          layout: {
-            fillGaps: true
-          },
-          dragEnabled: false
-        })
-      );
-    }
-
-    void spawnGrid();
+    setGrid(
+      new Muuri(gridRef.current, {
+        items: ".item",
+        layout: {
+          fillGaps: true
+        },
+        dragEnabled: false
+      })
+    );
   }, [grid]);
 
   return (

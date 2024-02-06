@@ -3,11 +3,30 @@ import NavItem from "@/components/NavItem.astro";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import SidebarAvatar from "@/components/SidebarAvatar";
+import { Menu } from "lucide-react";
 ---
 
+<script type="module">
+  const sidebarToggle = document.getElementById("sidebar-toggle");
+
+  sidebarToggle.addEventListener("click", () => {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("hidden");
+    sidebar.classList.toggle("opacity-0");
+    sidebarToggle.classList.toggle("bg-border");
+  });
+</script>
+
+<button
+  class="absolute left-1 top-1 z-10 rounded p-1 hover:bg-border md:hidden"
+  id="sidebar-toggle"
+>
+  <Menu />
+</button>
 <aside
   transition:animate="fade"
-  class="flex h-screen w-64 flex-col bg-primary-foreground p-8"
+  class="absolute z-[5] hidden h-screen w-full flex-col bg-primary-foreground p-8 opacity-0 md:flex md:w-64"
+  id="sidebar"
 >
   <header class="flex flex-col">
     <SidebarAvatar client:idle className="mb-3" />

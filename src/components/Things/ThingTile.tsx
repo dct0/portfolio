@@ -8,12 +8,12 @@ import { type Document } from "@contentful/rich-text-types";
 import type { Asset, AssetFile } from "contentful";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
-export const thingTile = cva("item m-4 rounded-xl", {
+export const thingTile = cva("item m-2 lg:m-4 rounded-xl", {
   variants: {
     size: {
-      sm: "w-[calc(25%-2rem)] h-[14rem]",
-      md: "w-[calc(50%-2rem)] h-[24rem]",
-      lg: "w-[calc(75%-2rem)] h-[34rem]",
+      sm: "w-[calc(50%-1rem)] lg:w-[calc(25%-2rem)] lg:h-[14rem]",
+      md: "w-[calc(50%-1rem)] lg:w-[calc(50%-2rem)] lg:h-[24rem]",
+      lg: "w-[calc(50%-1rem)] lg:w-[calc(75%-2rem)] lg:h-[34rem]",
       full: "w-full"
     }
   },
@@ -60,7 +60,9 @@ const ThingTile = ({
                 backgroundColor: colour
               }}
             >
-              <h3 className="mb-2 text-3xl font-semibold">{name}</h3>
+              <h3 className="mb-2 text-2xl font-semibold lg:text-3xl">
+                {name}
+              </h3>
               {documentToReactComponents(description, rendererOptions)}
             </div>
           </div>

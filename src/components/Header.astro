@@ -8,14 +8,14 @@ const { title, description } = Astro.props;
 ---
 
 <header
-  class="mb-14 mt-16 flex flex-col items-center md:flex-row md:justify-between"
+  class="mb-8 mt-10 flex flex-col items-center sm:mb-14 sm:mt-16 sm:flex-row sm:justify-between"
 >
   <h1
-    class="text-4xl font-extrabold leading-tight tracking-tighter md:pr-8 md:text-6xl"
+    class="text-4xl font-extrabold leading-tight tracking-tighter sm:pr-8 sm:text-6xl"
   >
     {title}
   </h1>
-  <h2 class="mt-5 text-center text-lg md:pl-8 md:text-left">
+  <h2 class="mt-1 text-center text-lg sm:mt-5 sm:pl-8 sm:text-left">
     {description}
   </h2>
 </header>

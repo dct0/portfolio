@@ -32,7 +32,7 @@ const { title, heading, subheading } = Astro.props.frontmatter || Astro.props;
   </head>
   <body class="flex h-screen w-full bg-secondary">
     <Sidebar />
-    <div class="flex w-full flex-col overflow-y-auto px-20">
+    <div class="flex w-full flex-col overflow-y-auto px-8 md:px-20">
       <Header title={heading} description={subheading} />
       <slot />
     </div>
