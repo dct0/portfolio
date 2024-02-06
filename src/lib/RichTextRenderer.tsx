@@ -2,13 +2,26 @@ import {
   documentToReactComponents,
   type Options
 } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, type Document } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES, type Document } from "@contentful/rich-text-types";
 
 export const rendererOptions: Options = {
   renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => (
+      <a
+        className="text-blue-700 hover:underline"
+        href={node.data.uri}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    ),
+
     [BLOCKS.PARAGRAPH]: (_, children) => <p className="mb-2">{children}</p>,
     [BLOCKS.QUOTE]: (_, children) => (
-      <blockquote className="mb-2">{children}</blockquote>
+      <blockquote className="mb-2 rounded border-l-2 border-secondary-foreground bg-secondary pl-2 leading-relaxed">
+        {children}
+      </blockquote>
     ),
     [BLOCKS.HEADING_1]: (_, children) => (
       <h1 className="mb-2 text-2xl font-semibold">{children}</h1>
