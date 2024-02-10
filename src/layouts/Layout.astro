@@ -36,7 +36,7 @@ const { title, heading, subheading } = Astro.props.frontmatter || Astro.props;
   </head>
   <body class="flex h-screen w-full bg-secondary">
     <SidebarToggle client:visible />
-    <Sidebar class="hidden sm:block" client:visible>
+    <Sidebar class="hidden sm:block">
       <NavItem name="Home" href="/" />
       <NavItem name="Projects" href="/projects" />
       <NavItem name="Posts" href="/posts" />

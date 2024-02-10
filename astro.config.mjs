@@ -9,7 +9,7 @@ import { astroImageTools } from "astro-imagetools";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   prefetch: true,
   adapter: vercel(),
   integrations: [
