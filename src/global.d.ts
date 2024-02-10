@@ -1,1 +1,1 @@
-declare module "get-relative-luminance";
+declare module "relative-luminance";

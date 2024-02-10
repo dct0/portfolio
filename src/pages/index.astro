@@ -1,6 +1,5 @@
 ---
-import SkillTile from "@/components/Home/SkillTile.astro";
-import SkillTileSpacer from "@/components/Home/SkillTileSpacer.astro";
+import SkillPill from "@/components/Home/SkillPill";
 import Layout from "@/layouts/Layout.astro";
 import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
 ---
@@ -80,7 +79,7 @@ import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
       <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
         That also took a music major
       </h2>
-      <p class="text-center text-2xl font-thin">Because they could.</p>
+      <p class="text-center text-2xl font-thin">Because they liked it.</p>
     </section>
 
     <section
@@ -90,95 +89,71 @@ import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
       <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
         That likes web development
       </h2>
-      <div class="grid w-full grid-cols-12 gap-2">
-        <SkillTileSpacer class="col-span-2" />
-        <SkillTile
-          class="col-span-5"
+      <div class="flex w-full flex-wrap justify-center gap-2 lg:px-32">
+        <SkillPill
           name="TypeScript"
           iconName="si-typescript"
           color="#3178C6"
+          client:load
         >
           <p>Done the rounds.</p>
           <p>Hono, Prisma</p>
-        </SkillTile>
-        <SkillTile
-          class="col-span-3"
+        </SkillPill>
+        <SkillPill
           name="Python"
           iconName="si-python"
           color="#3776AB"
+          client:load
         >
           <p>Ol' Reliable.</p>
           <p>Flask, Django</p>
-        </SkillTile>
-        <SkillTileSpacer class="col-span-2" />
-
-        <SkillTile
-          class="col-span-3"
-          name="Astro"
-          iconName="si-astro"
-          color="#BC52EE"
-        >
+        </SkillPill>
+        <SkillPill name="Astro" iconName="si-astro" color="#BC52EE" client:load>
           <p>This entire website was made with it!</p>
-        </SkillTile>
-        <SkillTile
-          class="col-span-6"
-          name="React"
-          iconName="si-react"
-          color="#61DAFB"
-        >
+        </SkillPill>
+        <SkillPill name="React" iconName="si-react" color="#61DAFB" client:load>
           <p>The whole ecosystem.</p>
           <p>Next.js, shadcn/ui, TRPC, Jotai, Auth.js</p>
-        </SkillTile>
-        <SkillTile
-          class="col-span-3"
-          name="Vue"
-          iconName="si-vue"
-          color="#4FC08D"
-        >
+        </SkillPill>
+        <SkillPill name="Vue" iconName="si-vue" color="#4FC08D" client:load>
           <p>Less pain.</p>
           <p>Pinia</p>
-        </SkillTile>
-
-        <SkillTileSpacer />
-        <SkillTile
-          class="col-span-5"
+        </SkillPill>
+        <SkillPill
           name="AWS"
           iconName="si-amazonaws"
           color="#FF9900"
+          client:load
         >
           <p>The whole shebang.</p>
           <p>CDK, ECR, ECS, API Gateway, Lambda.</p>
-        </SkillTile>
-        <SkillTile
-          class="col-span-5"
+        </SkillPill>
+        <SkillPill
           name="Docker"
           iconName="si-docker"
           color="#2496ED"
+          client:load
         >
           <p>Who hasn't?</p>
           <p>Containerisation, Deployment</p>
-        </SkillTile>
-        <SkillTileSpacer />
-
-        <SkillTileSpacer class="col-span-2" />
-        <SkillTile
-          class="col-span-3"
+        </SkillPill>
+        <SkillPill
           name="Firebase"
           iconName="si-firebase"
           color="#FFCA28"
+          client:load
         >
           <p>The no-thought solution.</p>
           <p>Database, Authentication, Permissions, Triggers</p>
-        </SkillTile>
-        <SkillTile
-          class="col-span-5"
+        </SkillPill>
+        <SkillPill
           name="Supabase"
           iconName="si-supabase"
           color="#3ECF8E"
+          client:load
         >
           <p>Firebase but better.</p>
-        </SkillTile>
-        <SkillTileSpacer class="col-span-2" />
+        </SkillPill>
       </div>
     </section>
     <section
