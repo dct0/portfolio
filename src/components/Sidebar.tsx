@@ -11,10 +11,7 @@ const Sidebar = ({
 }: PropsWithChildren<{ className?: ClassNameValue }>) => {
   return (
     <aside
-      className={cn(
-        "z-[5] h-screen flex-col bg-primary-foreground p-8",
-        className
-      )}
+      className={cn("z-[5] h-screen bg-primary-foreground p-8", className)}
       id="sidebar"
     >
       <header className="flex flex-col">
