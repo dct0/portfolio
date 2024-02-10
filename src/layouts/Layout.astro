@@ -1,6 +1,7 @@
 ---
 import Header from "@/components/Header.astro";
-import Sidebar from "@/components/Sidebar.astro";
+import NavItem from "@/components/NavItem.astro";
+import SidebarController from "@/components/SidebarController";
 import { CMS_NAME } from "@/lib/constants";
 
 import "@/styles/globals.css";
@@ -31,8 +32,13 @@ const { title, heading, subheading } = Astro.props.frontmatter || Astro.props;
     <ViewTransitions />
   </head>
   <body class="flex h-screen w-full bg-secondary">
-    <Sidebar />
-    <div class="flex w-full flex-col overflow-y-auto px-8 md:px-20">
+    <SidebarController client:only>
+      <NavItem name="Home" href="/" client:load />
+      <NavItem name="Projects" href="/projects" client:load />
+      <NavItem name="Posts" href="/posts" client:load />
+      <NavItem name="Links" href="/links" client:load />
+    </SidebarController>
+    <div class="flex w-full flex-col overflow-y-auto px-8 sm:px-20">
       <Header title={heading} description={subheading} />
       <slot />
     </div>
