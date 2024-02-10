@@ -8,7 +8,7 @@ const SidebarToggle = () => {
 
   return (
     <Toggle
-      className="absolute right-7 top-7 z-10 rounded p-2 hover:bg-border sm:hidden"
+      className="absolute right-7 top-7 z-[1000] rounded p-2 hover:bg-border sm:hidden"
       aria-label="Toggle Sidebar"
       onClick={() => isSidebarOpen.set(!$isSidebarOpen)}
     >

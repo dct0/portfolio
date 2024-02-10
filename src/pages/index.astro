@@ -1,7 +1,7 @@
 ---
+import MobileNavigationMenu from "@/components/Home/MobileNavigationMenu";
 import SkillPill from "@/components/Home/SkillPill";
 import Layout from "@/layouts/Layout.astro";
-import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
 ---
 
 <Layout
@@ -10,13 +10,15 @@ import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
   subheading="Here is the latest style trend."
 >
   <article
-    class="dark static mb-16 h-full overflow-y-auto overflow-x-hidden rounded-xl bg-gray-900"
+    class="dark static mb-8 h-full overflow-y-auto overflow-x-hidden rounded-xl bg-gray-900 sm:mb-16"
   >
     <nav
       class="flex h-20 items-center border-b border-gray-700 bg-gray-900 px-8"
     >
-      <a href="#" class="text-2xl font-bold text-gray-100">Imagine</a>
-      <div class="ml-auto flex">
+      <h1 class="text-center text-2xl font-bold text-gray-100">
+        <a href="#">🐟 Dylan To</a>
+      </h1>
+      <div class="ml-auto hidden sm:flex">
         <span class="mr-8 border-r border-gray-700" role="separator"></span>
         <ul class="flex gap-8">
           <li>
@@ -36,58 +38,34 @@ import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
           </li>
         </ul>
       </div>
+      <MobileNavigationMenu className="ml-auto flex sm:hidden" client:load />
     </nav>
     <section
-      class="funny container relative pb-32 pt-64 text-center text-gray-100"
+      class="funny container relative pb-24 pt-48 text-center text-gray-100 sm:pb-32 sm:pt-64"
     >
-      <h2 class="mb-8 text-6xl font-bold">A Software Engineer</h2>
-      <h3 class="mb-6 text-2xl font-thin">
-        That was running out of good ideas.
+      <h2 class="mb-8 text-5xl font-bold sm:text-6xl">
+        Is a Software Engineer
+      </h2>
+      <h3 class="mb-6 text-xl font-thin sm:text-2xl">
+        That likes to make things.
       </h3>
-      <div class="flex items-center justify-center gap-4">
-        <div class="bg-blue-purple-gradient p-0.5 shadow-sm">
-          <div class="flex items-center bg-gray-950 p-4">
-            <ChevronRightIcon className="mr-1 text-gray-100" size="20" />
-            <code
-              class="flex-1 text-left font-mono text-lg leading-none text-gray-400"
-            >
-              So they copied
-            </code>
-            <button
-              class="hover:scale-105 active:scale-100 active:transition-none"
-              type="button"
-            >
-              <ClipboardCopy
-                className="ml-3 text-gray-100 hover:text-gray-300"
-                size="24"
-              />
-            </button>
-          </div>
-        </div>
-        <a
-          class="flex h-14 items-center rounded-full bg-gray-100 px-10 text-center font-medium leading-none text-blue-600 hover:bg-gray-300"
-          href="https://astro.build/"
-          target="_blank"
-        >
-          Astro's Website
-        </a>
-      </div>
-      <p class="mt-4 text-gray-400">(but found inspiration later)</p>
     </section>
 
-    <section class="py-32 text-gray-100" id="about">
-      <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
-        That also took a music major
+    <section class="py-24 text-gray-100 sm:py-32" id="about">
+      <h2 class="mb-8 text-center text-4xl font-bold leading-tight sm:text-5xl">
+        Who also took a music major
       </h2>
-      <p class="text-center text-2xl font-thin">Because they liked it.</p>
+      <p class="text-center text-xl font-thin sm:text-2xl">
+        Because they liked it.
+      </p>
     </section>
 
     <section
-      class="container flex flex-col items-center py-32 text-center text-gray-100"
+      class="container flex flex-col items-center py-24 text-center text-gray-100 sm:py-32"
       id="skills"
     >
-      <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
-        That likes web development
+      <h2 class="mb-8 text-center text-4xl font-bold leading-tight sm:text-5xl">
+        Likes web development
       </h2>
       <div class="flex w-full flex-wrap justify-center gap-2 lg:px-32">
         <SkillPill
@@ -157,13 +135,13 @@ import { ChevronRightIcon, ClipboardCopy } from "lucide-react";
       </div>
     </section>
     <section
-      class="container flex flex-col items-center py-32 text-center text-gray-100"
+      class="container flex flex-col items-center py-24 text-center text-gray-100 sm:py-32"
       id="other-skills"
     >
-      <h2 class="mb-8 text-center text-5xl font-bold leading-tight">
+      <h2 class="mb-8 text-center text-4xl font-bold leading-tight sm:text-5xl">
         And can do other things too
       </h2>
-      <p class="text-center text-2xl font-thin">
+      <p class="text-center text-xl font-thin sm:text-2xl">
         Like DevOps and Machine Learning.
       </p>
     </section>

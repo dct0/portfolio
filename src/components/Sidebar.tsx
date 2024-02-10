@@ -12,7 +12,7 @@ const Sidebar = ({
   return (
     <aside
       className={cn(
-        "relative z-[5] h-screen w-64 bg-primary-foreground p-8",
+        "relative z-[999] h-screen w-64 bg-primary-foreground p-8",
         className
       )}
       id="sidebar"
