@@ -1,6 +1,6 @@
 import { isSidebarOpen } from "@/atoms/sidebar";
 import { useStore } from "@nanostores/react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Toggle } from "./ui/toggle";
 
 const SidebarToggle = () => {
@@ -8,11 +8,11 @@ const SidebarToggle = () => {
 
   return (
     <Toggle
-      className="absolute left-1 top-1 z-10 rounded p-1 hover:bg-border sm:hidden"
+      className="absolute right-7 top-7 z-10 rounded p-2 hover:bg-border sm:hidden"
       aria-label="Toggle Sidebar"
       onClick={() => isSidebarOpen.set(!$isSidebarOpen)}
     >
-      <Menu />
+      {$isSidebarOpen ? <X /> : <Menu />}
     </Toggle>
   );
 };

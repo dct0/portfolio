@@ -1,34 +1,40 @@
 ---
 import NavItem from "@/components/NavItem.astro";
+import SidebarAvatar from "@/components/SidebarAvatar";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
-import SidebarAvatar from "@/components/SidebarAvatar";
-import type { ClassValue } from "clsx";
 import { cn } from "@/lib/utils";
+import type { ClassValue } from "clsx";
 
 const { class: className }: { class?: ClassValue } = Astro.props;
 ---
 
 <aside
   transition:animate="fade"
-  class={cn("z-[5] h-screen bg-primary-foreground p-8", className)}
+  class={cn(
+    "relative z-[5] h-screen w-64 bg-primary-foreground p-8",
+    className
+  )}
   id="sidebar"
 >
-  <header class="flex flex-col">
+  <header>
     <SidebarAvatar client:idle className="mb-3" />
     <b class="text-xl">Dylan To</b>
-    <p class="text-sm text-muted-foreground">dylan.to@hotmail.com</p>
+    <a
+      class="flex items-center text-sm text-muted-foreground hover:underline"
+      href="https://github.com/dct0"
+    >
+      @dct0
+    </a>
   </header>
   <Separator className="my-12" />
-  <div class="flex h-full flex-col justify-between">
-    <nav class="flex flex-col gap-6 pl-3">
-      <NavItem name="Home" href="/" />
-      <NavItem name="Projects" href="/projects" />
-      <NavItem name="Posts" href="/posts" />
-      <NavItem name="Links" href="/links" />
-    </nav>
-    <footer>
-      <Switch client:load className="float-right" />
-    </footer>
-  </div>
+  <nav class="flex flex-col gap-6 pl-3">
+    <NavItem name="Home" href="/" />
+    <NavItem name="Projects" href="/projects" />
+    <NavItem name="Posts" href="/posts" />
+    <NavItem name="Links" href="/links" />
+  </nav>
+  <footer class="absolute bottom-8 right-8">
+    <Switch client:load />
+  </footer>
 </aside>

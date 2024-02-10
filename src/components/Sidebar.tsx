@@ -11,21 +11,27 @@ const Sidebar = ({
 }: PropsWithChildren<{ className?: ClassNameValue }>) => {
   return (
     <aside
-      className={cn("z-[5] h-screen bg-primary-foreground p-8", className)}
+      className={cn(
+        "relative z-[5] h-screen w-64 bg-primary-foreground p-8",
+        className
+      )}
       id="sidebar"
     >
-      <header className="flex flex-col">
+      <header>
         <SidebarAvatar className="mb-3" />
         <b className="text-xl">Dylan To</b>
-        <p className="text-sm text-muted-foreground">dylan.to@hotmail.com</p>
+        <a
+          className="flex items-center text-sm text-muted-foreground hover:underline"
+          href="https://github.com/dct0"
+        >
+          @dct0
+        </a>
       </header>
       <Separator className="my-12" />
-      <div className="flex h-full flex-col justify-between">
-        <nav className="flex flex-col gap-6 pl-3">{children}</nav>
-        <footer>
-          <Switch className="float-right" />
-        </footer>
-      </div>
+      <nav className="flex flex-col gap-6 pl-3">{children}</nav>
+      <footer className="absolute bottom-8 right-8">
+        <Switch />
+      </footer>
     </aside>
   );
 };
