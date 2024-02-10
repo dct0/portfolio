@@ -21,23 +21,29 @@ const MobileNavigationMenu = ({ className }: { className?: ClassValue }) => {
           <NavigationMenuContent>
             <ul className="grid gap-4 p-4">
               <li>
-                <a className="text-gray-100 hover:underline" href="#about">
+                <NavigationMenuLink
+                  className="text-gray-100 hover:underline"
+                  href="#about"
+                >
                   About
-                </a>
+                </NavigationMenuLink>
               </li>
               <li>
-                <a className="text-gray-100 hover:underline" href="#skills">
+                <NavigationMenuLink
+                  className="text-gray-100 hover:underline"
+                  href="#skills"
+                >
                   Skills
-                </a>
+                </NavigationMenuLink>
               </li>
               <li>
-                <a
+                <NavigationMenuLink
                   className="font-medium text-fuchsia-400 hover:underline"
                   href="/resume.pdf"
                   target="_blank"
                 >
                   Resume
-                </a>
+                </NavigationMenuLink>
               </li>
             </ul>
           </NavigationMenuContent>
